@@ -1,0 +1,37 @@
+@model sala_de_escape.Models.GameProgress
+@{
+    ViewData["Title"] = "Candado final";
+}
+
+<div class="escape-shell">
+    <div class="card game-card shadow-lg">
+        <div class="card-body p-4 p-md-5">
+            <p class="eyebrow">Último paso</p>
+            <h1 class="mb-3">Candado final</h1>
+            <p class="lead">Jugador: <strong>@Model.PlayerName</strong></p>
+            <p>Ya conseguiste los números. Ahora tenés que introducir la combinación final para abrir la puerta.</p>
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger">@TempData["Error"]</div>
+            }
+
+            <div class="alert alert-info">
+                Números obtenidos: <strong>@string.Join(" - ", Model.SolvedNumbers)</strong>
+            </div>
+
+            <form asp-action="Unlock" method="post">
+                @Html.AntiForgeryToken()
+                <div class="mb-3">
+                    <label for="finalCode" class="form-label fw-semibold">Código de 4 dígitos</label>
+                    <input id="finalCode" name="finalCode" class="form-control form-control-lg text-center" maxlength="4" placeholder="0000" required />
+                </div>
+                <button type="submit" class="btn btn-success btn-lg w-100">Desbloquear puerta</button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <a asp-action="Restart" class="btn btn-outline-secondary">Reiniciar partida</a>
+            </div>
+        </div>
+    </div>
+</div>

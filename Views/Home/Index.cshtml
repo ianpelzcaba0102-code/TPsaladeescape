@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Escapar del container";
+}
+
+<div class="escape-shell">
+    <div class="card game-card shadow-lg">
+        <div class="card-body p-4 p-md-5">
+            <p class="eyebrow">River Plate</p>
+            <h1 class="display-5 fw-bold mb-3">Escapar del container</h1>
+            <p class="lead text-muted mb-4">
+                El reloj marca 20:00. Tenés que resolver cada prueba, conseguir los números y desbloquear la puerta.
+            </p>
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger">@TempData["Error"]</div>
+            }
+
+            <form asp-action="Start" method="post">
+                @Html.AntiForgeryToken()
+                <div class="mb-3">
+                    <label for="playerName" class="form-label fw-semibold">Tu nombre</label>
+                    <input id="playerName" name="playerName" class="form-control form-control-lg" placeholder="Ingresá tu nombre" required />
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg w-100">Comenzar</button>
+            </form>
+        </div>
+    </div>
+</div>

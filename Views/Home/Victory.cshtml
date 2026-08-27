@@ -1,0 +1,19 @@
+@model sala_de_escape.Models.GameProgress
+@{
+    ViewData["Title"] = "Victoria";
+}
+
+<div class="escape-shell">
+    <div class="card game-card shadow-lg border-success">
+        <div class="card-body p-4 p-md-5 text-center">
+            <p class="eyebrow text-success">FICHAJE COMPLETADO</p>
+            <h1 class="display-5 fw-bold mb-3">¡Lo lograron!</h1>
+            <p class="lead">@Model.PlayerName, la puerta se abrió y la historia de River continúa.</p>
+            <p class="text-muted">Código correcto: <strong>@Model.FinalCode</strong></p>
+
+            <div class="mt-4">
+                <a asp-action="Restart" class="btn btn-success btn-lg">Jugar otra vez</a>
+            </div>
+        </div>
+    </div>
+</div>
