@@ -1,0 +1,6 @@
+Nos olvidamos de cambiar el link del GitHub que entregamos.
+
+una instancia del projecto correcto esta en "TP CORRECTO"
+(esta no funciona, por favor chequear el nuevo link para ver la versión final)
+
+Aquí esta el link de ese: https://github.com/dorego-m/sala-de-espace-TP.git
